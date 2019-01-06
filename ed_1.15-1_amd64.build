@@ -1,0 +1,209 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package ed
+dpkg-buildpackage: info: source version 1.15-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Lev Lamberov <dogsleg@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_auto_clean
+	make -j8 distclean
+make[1]: Entering directory '/dev/shm/apt/ed/ed'
+rm -f ed red buffer.o carg_parser.o global.o io.o main.o main_loop.o regex.o signal.o
+rm -f Makefile config.status *.tar *.tar.lz
+make[1]: Leaving directory '/dev/shm/apt/ed/ed'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f debian/ed.debhelper.log
+	rm -f -- debian/ed.substvars debian/files
+	rm -fr -- debian/ed/ debian/tmp/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=1855689129 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/dev/shm/apt/ed/ed'
+dh_auto_configure -- --bindir=/bin --prefix=/usr CC=icc.pl CXX=icpc.pl AR=xiar.pl
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --bindir=/bin --prefix=/usr CC=icc.pl CXX=icpc.pl AR=xiar.pl
+configure: WARNING: unrecognized option: '--build=x86_64-linux-gnu'
+configure: WARNING: unrecognized option: '--includedir=${prefix}/include'
+configure: WARNING: unrecognized option: '--sysconfdir=/etc'
+configure: WARNING: unrecognized option: '--localstatedir=/var'
+configure: WARNING: unrecognized option: '--disable-silent-rules'
+configure: WARNING: unrecognized option: '--libdir=${prefix}/lib/x86_64-linux-gnu'
+configure: WARNING: unrecognized option: '--libexecdir=${prefix}/lib/x86_64-linux-gnu'
+configure: WARNING: unrecognized option: '--runstatedir=/run'
+configure: WARNING: unrecognized option: '--disable-maintainer-mode'
+configure: WARNING: unrecognized option: '--disable-dependency-tracking'
+
+creating config.status
+creating Makefile
+VPATH = .
+prefix = /usr
+exec_prefix = $(prefix)
+bindir = /bin
+datarootdir = $(prefix)/share
+infodir = ${prefix}/share/info
+mandir = ${prefix}/share/man
+program_prefix = 
+CC = icc.pl
+CPPFLAGS = 
+CFLAGS = -Wall -W -O2
+LDFLAGS = 
+OK. Now you can run make.
+make[1]: Leaving directory '/dev/shm/apt/ed/ed'
+   dh_auto_build
+	make -j8
+make[1]: Entering directory '/dev/shm/apt/ed/ed'
+icc.pl  -Wall -W -O2 -c -o buffer.o buffer.c
+icc.pl  -Wall -W -O2 -c -o carg_parser.o carg_parser.c
+icc.pl  -Wall -W -O2 -c -o global.o global.c
+icc.pl  -Wall -W -O2 -c -o io.o io.c
+icc.pl  -Wall -W -O2 -DPROGVERSION=\"1.15\" -c -o main.o main.c
+icc.pl  -Wall -W -O2 -c -o main_loop.o main_loop.c
+icc.pl  -Wall -W -O2 -c -o regex.o regex.c
+icc.pl  -Wall -W -O2 -c -o signal.o signal.c
+cat ./red.in > red
+chmod a+x red
+icc.pl  -Wall -W -O2 -o ed buffer.o carg_parser.o global.o io.o main.o main_loop.o regex.o signal.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[1]: Leaving directory '/dev/shm/apt/ed/ed'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+	rm -f -- debian/ed.substvars
+	rm -fr -- debian/.debhelper/generated/ed/ debian/ed/ debian/tmp/
+   dh_auto_install
+	install -d /dev/shm/apt/ed/ed/debian/ed
+	make -j8 install DESTDIR=/dev/shm/apt/ed/ed/debian/ed AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/dev/shm/apt/ed/ed'
+if [ ! -d "/dev/shm/apt/ed/ed/debian/ed/bin" ] ; then install -d -m 755 "/dev/shm/apt/ed/ed/debian/ed/bin" ; fi
+if [ ! -d "/dev/shm/apt/ed/ed/debian/ed/usr/share/info" ] ; then install -d -m 755 "/dev/shm/apt/ed/ed/debian/ed/usr/share/info" ; fi
+if [ ! -d "/dev/shm/apt/ed/ed/debian/ed/usr/share/man/man1" ] ; then install -d -m 755 "/dev/shm/apt/ed/ed/debian/ed/usr/share/man/man1" ; fi
+install -m 755 ./ed "/dev/shm/apt/ed/ed/debian/ed/bin/ed"
+rm -f "/dev/shm/apt/ed/ed/debian/ed/usr/share/info/ed.info"*
+rm -f "/dev/shm/apt/ed/ed/debian/ed/usr/share/man/man1/ed.1"*
+install -m 644 ./doc/ed.info "/dev/shm/apt/ed/ed/debian/ed/usr/share/info/ed.info"
+install -m 755 ./red "/dev/shm/apt/ed/ed/debian/ed/bin/red"
+rm -f "/dev/shm/apt/ed/ed/debian/ed/usr/share/man/man1/red.1"*
+if /bin/sh -c "install-info --version" > /dev/null 2>&1 ; then \
+	install-info --info-dir="/dev/shm/apt/ed/ed/debian/ed/usr/share/info" "/dev/shm/apt/ed/ed/debian/ed/usr/share/info/ed.info" ; \
+fi
+install -m 644 ./doc/ed.1 "/dev/shm/apt/ed/ed/debian/ed/usr/share/man/man1/ed.1"
+cd "/dev/shm/apt/ed/ed/debian/ed/usr/share/man/man1" && ln -s "ed.1" "red.1"
+make[1]: Leaving directory '/dev/shm/apt/ed/ed'
+   dh_installdocs
+	install -d debian/ed/usr/share/doc/ed
+	install -d debian/.debhelper/generated/ed
+	install -p -m0644 debian/copyright debian/ed/usr/share/doc/ed/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/ed/usr/share/doc/ed/changelog.Debian
+	install -p -m0644 ./ChangeLog debian/ed/usr/share/doc/ed/changelog
+   dh_installman
+	man -l --recode UTF-8 ./debian/ed/usr/share/man/man1/ed.1 > debian/ed/usr/share/man/man1/ed.1.dh-new
+	mv debian/ed/usr/share/man/man1/ed.1.dh-new debian/ed/usr/share/man/man1/ed.1
+	chmod 0644 -- debian/ed/usr/share/man/man1/ed.1
+   dh_perl
+   dh_link
+	rm -f debian/ed/usr/share/man/man1/red.1
+	ln -s ed.1 debian/ed/usr/share/man/man1/red.1
+   dh_strip_nondeterminism
+   dh_compress
+	cd debian/ed
+	chmod a-x usr/share/doc/ed/changelog usr/share/doc/ed/changelog.Debian usr/share/info/dir usr/share/info/ed.info usr/share/man/man1/ed.1
+	gzip -9nf usr/share/doc/ed/changelog usr/share/doc/ed/changelog.Debian usr/share/info/dir usr/share/info/ed.info usr/share/man/man1/ed.1
+	cd '/dev/shm/apt/ed/ed'
+	rm -f debian/ed/usr/share/man/man1/red.1 debian/ed/usr/share/man/man1/red.1.gz
+	ln -s ed.1.gz debian/ed/usr/share/man/man1/red.1.gz
+   dh_fixperms
+	find debian/ed -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/ed ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/ed/usr/share/doc -type f -a -true -a ! -regex 'debian/ed/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/ed/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/ed/usr/share/man -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/ed -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/ed/bin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+   dh_missing
+   dh_strip
+	install -d debian/.debhelper/ed/dbgsym-root/usr/lib/debug/.build-id/f3
+	objcopy --only-keep-debug --compress-debug-sections debian/ed/bin/ed debian/.debhelper/ed/dbgsym-root/usr/lib/debug/.build-id/f3/f1e967dfab74dab44ee20a1883da28ef307ed7.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/ed/dbgsym-root/usr/lib/debug/.build-id/f3/f1e967dfab74dab44ee20a1883da28ef307ed7.debug
+	chown 0:0 -- debian/.debhelper/ed/dbgsym-root/usr/lib/debug/.build-id/f3/f1e967dfab74dab44ee20a1883da28ef307ed7.debug
+	strip --remove-section=.comment --remove-section=.note debian/ed/bin/ed
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/ed/dbgsym-root/usr/lib/debug/.build-id/f3/f1e967dfab74dab44ee20a1883da28ef307ed7.debug debian/ed/bin/ed
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/ed/dbgsym-root/usr/share/doc
+	ln -s ed debian/.debhelper/ed/dbgsym-root/usr/share/doc/ed-dbgsym
+   dh_makeshlibs
+	rm -f debian/ed/DEBIAN/shlibs
+   dh_shlibdeps
+	install -d debian/ed/DEBIAN
+	dpkg-shlibdeps -Tdebian/ed.substvars debian/ed/bin/ed
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+   dh_installdeb
+	sed s/\#DEBHELPER\#// debian/postinst > debian/ed/DEBIAN/postinst
+	chmod 0755 -- debian/ed/DEBIAN/postinst
+	chown 0:0 -- debian/ed/DEBIAN/postinst
+	sed s/\#DEBHELPER\#// debian/prerm > debian/ed/DEBIAN/prerm
+	chmod 0755 -- debian/ed/DEBIAN/prerm
+	chown 0:0 -- debian/ed/DEBIAN/prerm
+   dh_gencontrol
+	echo misc:Depends= >> debian/ed.substvars
+	echo misc:Pre-Depends= >> debian/ed.substvars
+	install -d debian/.debhelper/ed/dbgsym-root/DEBIAN
+	dpkg-gencontrol -ped -ldebian/changelog -Tdebian/ed.substvars -Pdebian/.debhelper/ed/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=ed-dbgsym "-DDepends=ed (= \${binary:Version})" "-DDescription=debug symbols for ed" -DBuild-Ids=f3f1e967dfab74dab44ee20a1883da28ef307ed7 -DSection=debug -UMulti-Arch -UReplaces -UBreaks
+	chmod 0644 -- debian/.debhelper/ed/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/ed/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -ped -ldebian/changelog -Tdebian/ed.substvars -Pdebian/ed
+	chmod 0644 -- debian/ed/DEBIAN/control
+	chown 0:0 -- debian/ed/DEBIAN/control
+   dh_md5sums
+	cd debian/ed >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/ed/DEBIAN/md5sums
+	chown 0:0 -- debian/ed/DEBIAN/md5sums
+	cd debian/.debhelper/ed/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/ed/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/ed/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --build debian/ed ..
+	dpkg-deb --build debian/.debhelper/ed/dbgsym-root ..
+dpkg-deb: building package 'ed' in '../ed_1.15-1_amd64.deb'.
+dpkg-deb: building package 'ed-dbgsym' in '../ed-dbgsym_1.15-1_amd64.deb'.
+FAKEROOTKEY=1768857574 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../ed_1.15-1_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian ed_1.15-1_amd64.changes ...
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+W: ed-dbgsym: debug-file-with-no-debug-symbols usr/lib/debug/.build-id/f3/f1e967dfab74dab44ee20a1883da28ef307ed7.debug
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+W: ed: hardening-no-pie bin/ed
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+E: ed: package-contains-info-dir-file usr/share/info/dir.gz
+Finished running lintian.

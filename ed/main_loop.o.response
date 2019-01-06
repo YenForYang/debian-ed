@@ -1,0 +1,5 @@
+-Wall
+-W
+-c
+-omain_loop.o
+main_loop.c

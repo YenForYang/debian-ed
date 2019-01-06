@@ -1,0 +1,12 @@
+Package: ed-dbgsym
+Source: ed
+Version: 1.15-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Martin Zobel-Helas <zobel@debian.org>
+Installed-Size: 27
+Depends: ed (= 1.15-1)
+Section: debug
+Priority: optional
+Description: debug symbols for ed
+Build-Ids: f3f1e967dfab74dab44ee20a1883da28ef307ed7

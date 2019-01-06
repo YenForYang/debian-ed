@@ -1,0 +1,11 @@
+-Wall
+-W
+-oed
+buffer.o
+carg_parser.o
+global.o
+io.o
+main.o
+main_loop.o
+regex.o
+signal.o

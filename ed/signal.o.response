@@ -1,0 +1,5 @@
+-Wall
+-W
+-c
+-osignal.o
+signal.c

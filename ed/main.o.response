@@ -1,0 +1,6 @@
+-Wall
+-W
+-DPROGVERSION="1.15"
+-c
+-omain.o
+main.c

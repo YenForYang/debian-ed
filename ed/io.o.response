@@ -1,0 +1,5 @@
+-Wall
+-W
+-c
+-oio.o
+io.c

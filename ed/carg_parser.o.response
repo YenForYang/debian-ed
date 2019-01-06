@@ -1,0 +1,5 @@
+-Wall
+-W
+-c
+-ocarg_parser.o
+carg_parser.c

@@ -1,0 +1,5 @@
+-Wall
+-W
+-c
+-oglobal.o
+global.c

@@ -1,0 +1,36 @@
+Format: 1.8
+Date: Thu, 03 Jan 2019 19:07:58 +0500
+Source: ed
+Binary: ed
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 1.15-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Martin Zobel-Helas <zobel@debian.org>
+Changed-By: Lev Lamberov <dogsleg@debian.org>
+Description:
+ ed         - classic UNIX line editor
+Changes:
+ ed (1.15-1) unstable; urgency=medium
+ .
+   [ Ondřej Nový ]
+   * d/tests: Use AUTOPKGTEST_TMP instead of ADTTMP
+   * d/control: Fix wrong Vcs-*
+ .
+   [ Lev Lamberov ]
+   * New upstream version 1.15
+   * d/control: Declare Standards-Version 4.3.0 (no changes needed)
+   * d/copyright: Update copyright information
+Checksums-Sha1:
+ 688885f9ca450d3ae5ccc15a7ec5b4aec25d3066 5188 ed-dbgsym_1.15-1_amd64.deb
+ 5eb2476319315a95c53645ab51f9ba6e37ead911 5247 ed_1.15-1_amd64.buildinfo
+ 4a21695cf4b09b8fde5aa065c975e83a9dc1c70f 102120 ed_1.15-1_amd64.deb
+Checksums-Sha256:
+ f1bdf03d6fad8f25533919df2f914eb6f0dc9caba386f4e591037e4441f8acb9 5188 ed-dbgsym_1.15-1_amd64.deb
+ 47d7ddac0caec9e6411e85cda84d5bce2d07c61e5c0cbcb79d0bb05720a7ad5f 5247 ed_1.15-1_amd64.buildinfo
+ ef9022d468d8ce09e361937a6c3e5dbbb479468227cc4ef18a8f03a5d0c905a4 102120 ed_1.15-1_amd64.deb
+Files:
+ 2c2d3a0b16be5b985c8314858b5a6746 5188 debug optional ed-dbgsym_1.15-1_amd64.deb
+ f29d3e410809c033f0e9d24f015021dc 5247 editors optional ed_1.15-1_amd64.buildinfo
+ 24e6a69593a87ce2e393fe96652d929a 102120 editors optional ed_1.15-1_amd64.deb
